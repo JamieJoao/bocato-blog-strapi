@@ -1,5 +1,5 @@
 {
-  "name": "strapi",
+  "name": "bocato-blog-api",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -11,20 +11,25 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/plugin-i18n": "4.17.1",
-    "@strapi/plugin-users-permissions": "4.17.1",
-    "@strapi/provider-upload-cloudinary": "4.17.1",
-    "@strapi/strapi": "4.17.1",
-    "pg": "8.11.3"
+    "@strapi/strapi": "4.20.5",
+    "@strapi/plugin-users-permissions": "4.20.5",
+    "@strapi/plugin-i18n": "4.20.5",
+    "@strapi/plugin-cloud": "4.20.5",
+    "better-sqlite3": "8.6.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "5.3.4",
+    "styled-components": "5.3.3"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "35d7a084-3088-4d0b-869e-f503693ee8e5"
+    "uuid": "8d4f6873-e9d2-4c8b-a8d5-cc95a59430a5"
   },
   "engines": {
-    "node": "20"
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
   },
   "license": "MIT"
 }
