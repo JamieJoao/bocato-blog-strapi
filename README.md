@@ -55,3 +55,8 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 ---
 
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+
+## Comands
+- execute prod mode: $env:ENV_PATH="./.env.production"; $env:NODE_ENV="production"; npm run start
+
+
