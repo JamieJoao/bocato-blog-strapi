@@ -480,6 +480,11 @@ export interface ApiPostPost extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<0>;
+    author: Attribute.Relation<
+      'api::post.post',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

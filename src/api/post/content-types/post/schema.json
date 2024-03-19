@@ -80,6 +80,11 @@
       },
       "type": "integer",
       "default": 0
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }
