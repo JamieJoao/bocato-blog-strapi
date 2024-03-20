@@ -83,8 +83,9 @@
     },
     "author": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
+      "relation": "manyToOne",
+      "target": "api::person.person",
+      "inversedBy": "posts"
     }
   }
 }

@@ -419,6 +419,58 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiPersonPerson extends Schema.CollectionType {
+  collectionName: 'people';
+  info: {
+    singularName: 'person';
+    pluralName: 'people';
+    displayName: 'Person';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    firstName: Attribute.String;
+    age: Attribute.Integer;
+    birthdayDate: Attribute.Date;
+    photo: Attribute.Media;
+    description: Attribute.RichText &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    user: Attribute.Relation<
+      'api::person.person',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    lastName: Attribute.String;
+    role: Attribute.Enumeration<
+      ['Co-Founder / CTO', 'Publicador', 'Cliente', 'An\u00F3nimo']
+    >;
+    posts: Attribute.Relation<
+      'api::person.person',
+      'oneToMany',
+      'api::post.post'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::person.person',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::person.person',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPostPost extends Schema.CollectionType {
   collectionName: 'posts';
   info: {
@@ -482,8 +534,8 @@ export interface ApiPostPost extends Schema.CollectionType {
       Attribute.DefaultTo<0>;
     author: Attribute.Relation<
       'api::post.post',
-      'oneToOne',
-      'plugin::users-permissions.user'
+      'manyToOne',
+      'api::person.person'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -910,6 +962,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    person: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::person.person'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -938,6 +995,7 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::category.category': ApiCategoryCategory;
+      'api::person.person': ApiPersonPerson;
       'api::post.post': ApiPostPost;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
