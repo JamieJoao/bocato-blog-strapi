@@ -86,6 +86,14 @@
       "relation": "manyToOne",
       "target": "api::person.person",
       "inversedBy": "posts"
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
     }
   }
 }

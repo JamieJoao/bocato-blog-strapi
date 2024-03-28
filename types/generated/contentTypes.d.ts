@@ -537,6 +537,12 @@ export interface ApiPostPost extends Schema.CollectionType {
       'manyToOne',
       'api::person.person'
     >;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
