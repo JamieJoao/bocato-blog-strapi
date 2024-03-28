@@ -34,7 +34,7 @@
     },
     "description": {
       "type": "richtext",
-      "maxLength": 1000
+      "maxLength": 2000
     },
     "user": {
       "type": "relation",
