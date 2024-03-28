@@ -437,7 +437,7 @@ export interface ApiPersonPerson extends Schema.CollectionType {
     photo: Attribute.Media;
     description: Attribute.RichText &
       Attribute.SetMinMaxLength<{
-        maxLength: 200;
+        maxLength: 1000;
       }>;
     user: Attribute.Relation<
       'api::person.person',
