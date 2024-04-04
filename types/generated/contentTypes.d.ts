@@ -447,6 +447,7 @@ export interface ApiCommentComment extends Schema.CollectionType {
     >;
     likes: Attribute.Integer;
     points: Attribute.Integer;
+    email: Attribute.Email;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -29,6 +29,9 @@
     },
     "points": {
       "type": "integer"
+    },
+    "email": {
+      "type": "email"
     }
   }
 }
