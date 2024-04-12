@@ -981,6 +981,36 @@ export interface ApiHomeHome extends Schema.SingleType {
   };
 }
 
+export interface ApiMarketplaceMarketplace extends Schema.SingleType {
+  collectionName: 'marketplaces';
+  info: {
+    singularName: 'marketplace';
+    pluralName: 'marketplaces';
+    displayName: 'Marketplace';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    data: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::marketplace.marketplace',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::marketplace.marketplace',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPersonPerson extends Schema.CollectionType {
   collectionName: 'people';
   info: {
@@ -1126,6 +1156,28 @@ export interface ApiPostPost extends Schema.CollectionType {
   };
 }
 
+export interface ApiSlugSlug extends Schema.SingleType {
+  collectionName: 'slugs';
+  info: {
+    singularName: 'slug';
+    pluralName: 'slugs';
+    displayName: 'Slug';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    data: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::slug.slug', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::slug.slug', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1149,8 +1201,10 @@ declare module '@strapi/types' {
       'api::comment.comment': ApiCommentComment;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::home.home': ApiHomeHome;
+      'api::marketplace.marketplace': ApiMarketplaceMarketplace;
       'api::person.person': ApiPersonPerson;
       'api::post.post': ApiPostPost;
+      'api::slug.slug': ApiSlugSlug;
     }
   }
 }

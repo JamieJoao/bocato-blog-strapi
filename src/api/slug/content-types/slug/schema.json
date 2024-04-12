@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "slugs",
+  "info": {
+    "singularName": "slug",
+    "pluralName": "slugs",
+    "displayName": "Slug"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "data": {
+      "type": "json"
+    }
+  }
+}

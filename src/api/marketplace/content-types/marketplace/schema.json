@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "marketplaces",
+  "info": {
+    "singularName": "marketplace",
+    "pluralName": "marketplaces",
+    "displayName": "Marketplace"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "data": {
+      "type": "json"
+    }
+  }
+}
