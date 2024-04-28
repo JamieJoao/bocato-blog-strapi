@@ -18,5 +18,14 @@ module.exports = {
         middlewares: [],
       },
     },
+    {
+      method: 'PUT',
+      path: '/images/:id',
+      handler: 'images.update',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    }
   ],
 };

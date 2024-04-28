@@ -44,7 +44,7 @@ module.exports = () => ({
             fields: ['id', 'name', 'path', 'pathId'],
             populate: {
               files: {
-                fields: ['id', 'name', 'url', 'formats', 'width', 'height', 'createdAt', 'updatedAt']
+                fields: ['id', 'name', 'url', 'formats', 'width', 'height', 'ext', 'size', 'folderPath', 'createdAt', 'updatedAt']
               }
             }
           }
@@ -83,14 +83,14 @@ module.exports = () => ({
       return error
     }
   },
-  update: async ({ folderId }, { name }) => {
+  update: async ({ folderId }, data) => {
     try {
       const folder = await strapi
         .entityService
         .update(
           'plugin::upload.folder',
           folderId,
-          { data: { name } }
+          { data }
         )
 
       return folder
