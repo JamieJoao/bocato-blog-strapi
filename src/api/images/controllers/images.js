@@ -7,7 +7,7 @@
 module.exports = {
   create: async (ctx) => {
     try {
-      const { files = {}, body: { pathId } } = ctx.request;
+      const { files = {}, body } = ctx.request;
       const filesMapped = Object
         .keys(files)
         .map(key => files[key]);
@@ -18,7 +18,7 @@ module.exports = {
 
       const data = await strapi
         .service('api::images.images')
-        .create({ files: filesMapped, pathId });
+        .create({ files: filesMapped, ...body });
 
       if (!data) {
         return ctx.notFound('file.notFound');

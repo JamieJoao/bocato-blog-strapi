@@ -7,20 +7,22 @@ const { Readable } = require('stream');
  */
 
 module.exports = () => ({
-  create: async ({ files, pathId }) => {
+  create: async ({ files, folderId }) => {
     try {
+      const folder = await strapi
+        .entityService
+        .findOne('plugin::upload.folder', 24)
+
+      if (!folder) return null
+
       const image = await strapi
         .plugins
         .upload
         .services
         .upload
         .upload({
-          files: files,
-          data: {
-            fileInfo: {
-              folder: pathId,
-            },
-          },
+          files,
+          data: { fileInfo: { folder: folder.id } }
         })
 
       return image

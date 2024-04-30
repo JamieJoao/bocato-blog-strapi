@@ -13,6 +13,7 @@ module.exports = () => ({
           'plugin::upload.folder',
           {
             fields: ['id', 'name', 'path', 'pathId'],
+            sort: 'createdAt:desc',
           }
         )
 
@@ -44,7 +45,8 @@ module.exports = () => ({
             fields: ['id', 'name', 'path', 'pathId'],
             populate: {
               files: {
-                fields: ['id', 'name', 'url', 'formats', 'width', 'height', 'ext', 'size', 'folderPath', 'createdAt', 'updatedAt']
+                fields: ['id', 'name', 'url', 'formats', 'width', 'height', 'ext', 'size', 'folderPath', 'createdAt', 'updatedAt'],
+                sort: 'createdAt:desc',
               }
             }
           }
