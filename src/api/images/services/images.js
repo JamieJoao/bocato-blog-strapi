@@ -11,8 +11,9 @@ module.exports = () => ({
     try {
       const folder = await strapi
         .entityService
-        .findOne('plugin::upload.folder', 24)
+        .findOne('plugin::upload.folder', folderId)
 
+      console.log('[folder]', folder)
       if (!folder) return null
 
       const image = await strapi
@@ -25,6 +26,7 @@ module.exports = () => ({
           data: { fileInfo: { folder: folder.id } }
         })
 
+      console.log('[image]', image)
       return image
     } catch (error) {
       console.log('[error]', error)
