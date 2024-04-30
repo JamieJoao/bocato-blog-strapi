@@ -29,6 +29,7 @@ module.exports = () => ({
         folder.count = count
       }
 
+      console.log('[folders]', folders)
       return folders
     } catch (error) {
       return error
@@ -52,6 +53,7 @@ module.exports = () => ({
           }
         )
 
+      console.log('[folder]', folder)
       return folder
     } catch (error) {
       return error
@@ -66,6 +68,7 @@ module.exports = () => ({
           { data: { name, path: `/${pathId}`, pathId } }
         )
 
+      console.log('[folder]', folder)
       return folder
     } catch (error) {
       return error
@@ -80,6 +83,7 @@ module.exports = () => ({
           folderId
         )
 
+      console.log('[folder]', folder)
       return folder
     } catch (error) {
       return error
@@ -95,6 +99,7 @@ module.exports = () => ({
           { data }
         )
 
+      console.log('[folder]', folder)
       return folder
     } catch (error) {
       return error
