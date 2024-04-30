@@ -12,8 +12,14 @@ module.exports = () => ({
         .findMany(
           'plugin::upload.folder',
           {
-            fields: ['id', 'name', 'path', 'pathId'],
+            fields: ['id', 'name', 'path', 'pathId', 'createdAt'],
             sort: 'createdAt:desc',
+            populate: {
+              files: {
+                fields: ['id', 'url', 'width', 'height', 'size', 'formats'],
+                sort: 'createdAt:desc',
+              }
+            }
           }
         )
 
