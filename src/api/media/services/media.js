@@ -23,18 +23,6 @@ module.exports = () => ({
           }
         )
 
-      for (const folder of folders) {
-        const count = await strapi
-          .entityService
-          .count(
-            'plugin::upload.file',
-            {
-              filters: { $and: [{ folder }] }
-            })
-
-        folder.count = count
-      }
-
       console.log('[folders]', folders)
       return folders
     } catch (error) {
