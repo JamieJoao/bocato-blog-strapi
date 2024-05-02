@@ -86,14 +86,23 @@ module.exports = () => ({
   delete: async ({ folderId }) => {
     try {
       const folder = await strapi
-        .entityService
-        .delete(
-          'plugin::upload.folder',
-          folderId
-        )
+        .service('plugin::upload.folder')
+        .deleteByIds([folderId])
 
       console.log('[folder delete]', folder)
       return folder
+    } catch (error) {
+      return error
+    }
+  },
+  deleteMultiple: async ({ foldersId }) => {
+    try {
+      const folders = await strapi
+        .service('plugin::upload.folder')
+        .deleteByIds(foldersId)
+
+      console.log('[folders delete]', folders)
+      return folders
     } catch (error) {
       return error
     }

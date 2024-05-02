@@ -8,9 +8,7 @@ module.exports = {
   create: async (ctx) => {
     try {
       const { files = {}, body } = ctx.request;
-      const filesMapped = Object
-        .keys(files)
-        .map(key => files[key]);
+      const filesMapped = Object.values(files)
 
       if (!filesMapped.length) {
         return ctx.badRequest('No files uploaded!');

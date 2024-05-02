@@ -44,6 +44,15 @@ module.exports = {
         policies: [],
         middlewares: [],
       },
+    },
+    {
+      method: 'POST',
+      path: '/media/delete-multiple',
+      handler: 'media.deleteMultiple',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
     }
   ],
 };
