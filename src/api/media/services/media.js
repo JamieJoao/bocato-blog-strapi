@@ -23,7 +23,7 @@ module.exports = () => ({
           }
         )
 
-      console.log('[folders]', folders)
+      console.log('[folders find]', folders)
       return folders
     } catch (error) {
       return error
@@ -47,22 +47,37 @@ module.exports = () => ({
           }
         )
 
-      console.log('[folder]', folder)
+      console.log('[folder findOne]', folder)
       return folder
     } catch (error) {
       return error
     }
   },
-  create: async ({ name, pathId }) => {
+  create: async ({ name }) => {
     try {
+      const { max } = await strapi
+        .db
+        .queryBuilder('plugin::upload.folder')
+        .max('pathId')
+        .first()
+        .execute()
+
+      const pathId = max ? max + 1 : 1
+
       const folder = await strapi
         .entityService
         .create(
           'plugin::upload.folder',
-          { data: { name, path: `/${pathId}`, pathId } }
+          {
+            data: {
+              name,
+              pathId,
+              path: `/${pathId}`
+            }
+          }
         )
 
-      console.log('[folder]', folder)
+      console.log('[folder created]', folder)
       return folder
     } catch (error) {
       return error
@@ -77,7 +92,7 @@ module.exports = () => ({
           folderId
         )
 
-      console.log('[folder]', folder)
+      console.log('[folder delete]', folder)
       return folder
     } catch (error) {
       return error
@@ -93,7 +108,7 @@ module.exports = () => ({
           { data }
         )
 
-      console.log('[folder]', folder)
+      console.log('[folder update]', folder)
       return folder
     } catch (error) {
       return error
