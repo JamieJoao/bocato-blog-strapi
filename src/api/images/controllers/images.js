@@ -56,5 +56,20 @@ module.exports = {
     } catch (err) {
       ctx.badRequest("[UPDATE IMAGE ERROR]", { moreDetails: err });
     }
-  }
+  },
+  checkUsed: async (ctx) => {
+    try {
+      const data = await strapi
+        .service('api::images.images')
+        .checkUsed(ctx.params);
+
+      if (!data) {
+        return ctx.notFound('file.notFound');
+      }
+
+      ctx.body = data;
+    } catch (err) {
+      ctx.badRequest("[CHECK USED IMAGE ERROR]", { moreDetails: err });
+    }
+  },
 };

@@ -26,6 +26,15 @@ module.exports = {
         policies: [],
         middlewares: [],
       },
-    }
+    },
+    {
+      method: 'GET',
+      path: '/images/:id/used',
+      handler: 'images.checkUsed',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
   ],
 };
