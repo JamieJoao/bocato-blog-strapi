@@ -9,6 +9,29 @@ module.exports = {
         middlewares: [],
       },
     },
+    /**
+     * Find one media
+     * @param {string} folderId - folderId
+     * @returns {object} media
+     * @example
+     * curl -X GET http://localhost:1337/media/field?name=folderName
+     */
+    {
+      method: 'GET',
+      path: '/media/field',
+      handler: 'media.findByField',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
+    /**
+     * Find one media
+     * @param {string} folderId - folderId
+     * @returns {object} media
+     * @example
+     * curl -X GET http://localhost:1337/media/1
+     */
     {
       method: 'GET',
       path: '/media/:folderId',
@@ -53,6 +76,6 @@ module.exports = {
         policies: [],
         middlewares: [],
       },
-    }
+    },
   ],
 };

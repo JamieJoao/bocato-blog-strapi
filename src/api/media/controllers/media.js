@@ -36,6 +36,22 @@ module.exports = {
       ctx.badRequest("[FIND FOLDER BY ID ERROR]", { moreDetails: err });
     }
   },
+  findByField: async (ctx, next) => {
+    try {
+      const data = await strapi
+        .service('api::media.media')
+        .findByField(ctx.request.query);
+
+      if (!data) {
+        return ctx.notFound('folder.notFound');
+      }
+
+      ctx.body = data;
+    } catch (err) {
+      console.log(err);
+      ctx.badRequest("[FIND FOLDER BY FIELD ERROR]", { moreDetails: err });
+    }
+  },
   create: async (ctx, next) => {
     try {
       const data = await strapi

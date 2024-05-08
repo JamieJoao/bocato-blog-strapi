@@ -53,6 +53,23 @@ module.exports = () => ({
       return error
     }
   },
+  findByField: async (query) => {
+    try {
+      const folder = await strapi
+        .entityService
+        .findMany(
+          'plugin::upload.folder',
+          {
+            filters: query,
+          },
+        )
+
+      console.log('[folder findByField]', folder)
+      return folder
+    } catch (error) {
+      return error
+    }
+  },
   create: async ({ name }) => {
     try {
       const { max } = await strapi
