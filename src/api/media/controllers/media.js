@@ -115,5 +115,21 @@ module.exports = {
       console.log(err);
       ctx.badRequest("[UPDATE FOLDER ERROR]", { moreDetails: err });
     }
-  }
+  },
+  checkUsed: async (ctx, next) => {
+    try {
+      const data = await strapi
+        .service('api::media.media')
+        .checkUsed(ctx.params);
+
+      if (!data) {
+        return ctx.notFound('folder.notFound');
+      }
+
+      ctx.body = data;
+    } catch (err) {
+      console.log(err);
+      ctx.badRequest("[CHECK USED FOLDER ERROR]", { moreDetails: err });
+    }
+  },
 };

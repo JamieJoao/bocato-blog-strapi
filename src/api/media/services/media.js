@@ -139,5 +139,45 @@ module.exports = () => ({
     } catch (error) {
       return error
     }
-  }
+  },
+  checkUsed: async ({ folderId }) => {
+    try {
+      const folder = await strapi
+        .entityService
+        .findOne(
+          'plugin::upload.folder',
+          folderId,
+          {
+            populate: {
+              files: {
+                fields: ['id', 'name'],
+              }
+            }
+          }
+        )
+
+      if (!folder) return null
+
+      const promises = folder
+        .files
+        .map(async ({ id, name }) => {
+          const uses = await strapi
+            .service('api::images.images')
+            .checkUsed({ id })
+
+          return {
+            id,
+            name,
+            uses,
+          }
+        })
+
+      const usesList = await Promise.all(promises)
+
+      console.log('[folder checkUsed]', usesList)
+      return usesList
+    } catch (error) {
+      return error
+    }
+  },
 })

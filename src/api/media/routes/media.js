@@ -77,5 +77,14 @@ module.exports = {
         middlewares: [],
       },
     },
+    {
+      method: 'GET',
+      path: '/media/:folderId/used',
+      handler: 'media.checkUsed',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
   ],
 };
