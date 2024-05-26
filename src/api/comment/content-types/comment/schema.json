@@ -24,9 +24,6 @@
       "target": "api::post.post",
       "inversedBy": "comments"
     },
-    "likes": {
-      "type": "integer"
-    },
     "points": {
       "type": "integer"
     },

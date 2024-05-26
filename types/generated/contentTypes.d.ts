@@ -907,7 +907,6 @@ export interface ApiCommentComment extends Schema.CollectionType {
       'manyToOne',
       'api::post.post'
     >;
-    likes: Attribute.Integer;
     points: Attribute.Integer;
     email: Attribute.Email;
     createdAt: Attribute.DateTime;
