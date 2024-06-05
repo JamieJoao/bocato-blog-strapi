@@ -806,6 +806,19 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
   };
   attributes: {
     data: Attribute.JSON;
+    favoriteRecipes: Attribute.Component<'about-us.favorite-recipe', true>;
+    name: Attribute.String;
+    mainImage: Attribute.Media;
+    title: Attribute.Blocks;
+    greeting: Attribute.String;
+    content: Attribute.Blocks;
+    productsImage: Attribute.Media;
+    ownComment: Attribute.RichText;
+    favoriteTitle: Attribute.String;
+    favoriteSubtitle: Attribute.String;
+    metaTitle: Attribute.String;
+    metaDescription: Attribute.String;
+    metaThumbnail: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1092,13 +1105,6 @@ export interface ApiPostPost extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    date: Attribute.DateTime &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     category: Attribute.Relation<
       'api::post.post',
       'manyToOne',
@@ -1116,13 +1122,6 @@ export interface ApiPostPost extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    views: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<0>;
     author: Attribute.Relation<
       'api::post.post',
       'manyToOne',

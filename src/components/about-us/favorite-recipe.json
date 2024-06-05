@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_about_us_favorite_recipes",
+  "info": {
+    "displayName": "Favorite Recipe",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

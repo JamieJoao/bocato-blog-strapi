@@ -14,6 +14,68 @@
   "attributes": {
     "data": {
       "type": "json"
+    },
+    "favoriteRecipes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about-us.favorite-recipe"
+    },
+    "name": {
+      "type": "string"
+    },
+    "mainImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "title": {
+      "type": "blocks"
+    },
+    "greeting": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "productsImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "ownComment": {
+      "type": "richtext"
+    },
+    "favoriteTitle": {
+      "type": "string"
+    },
+    "favoriteSubtitle": {
+      "type": "string"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
+    },
+    "metaThumbnail": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

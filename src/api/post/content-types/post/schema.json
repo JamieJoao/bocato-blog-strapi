@@ -40,15 +40,6 @@
         }
       }
     },
-    "date": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "datetime",
-      "required": true
-    },
     "category": {
       "type": "relation",
       "relation": "manyToOne",
@@ -71,15 +62,6 @@
         }
       },
       "type": "richtext"
-    },
-    "views": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "integer",
-      "default": 0
     },
     "author": {
       "type": "relation",
