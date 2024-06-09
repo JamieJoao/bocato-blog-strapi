@@ -4,15 +4,82 @@
   "info": {
     "singularName": "home",
     "pluralName": "homes",
-    "displayName": "Home"
+    "displayName": "Home",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "data": {
-      "type": "json"
+    "lastPostsTitle": {
+      "type": "string"
+    },
+    "lastPostsButtonText": {
+      "type": "string"
+    },
+    "lastPostsButtonUrl": {
+      "type": "string"
+    },
+    "ticketsTitle": {
+      "type": "string"
+    },
+    "ticketsButtonText": {
+      "type": "string"
+    },
+    "ticketsButtonUrl": {
+      "type": "string"
+    },
+    "ticketsImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "igTitle": {
+      "type": "string"
+    },
+    "igButtonText": {
+      "type": "string"
+    },
+    "igButtonUrl": {
+      "type": "string"
+    },
+    "igImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "igMessage": {
+      "type": "text"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "metaThumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

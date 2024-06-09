@@ -4,15 +4,40 @@
   "info": {
     "singularName": "slug",
     "pluralName": "slugs",
-    "displayName": "Slug"
+    "displayName": "Slug",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "data": {
-      "type": "json"
+    "actionButtonsShareButton": {
+      "type": "string"
+    },
+    "actionButtonsCommentsButton": {
+      "type": "string"
+    },
+    "alsoLikeText": {
+      "type": "string"
+    },
+    "createCommentTitle": {
+      "type": "string"
+    },
+    "createCommentDescription": {
+      "type": "text"
+    },
+    "createCommentStarsSelectorText": {
+      "type": "string"
+    },
+    "createCommentSendButton": {
+      "type": "string"
+    },
+    "commentsTitle": {
+      "type": "string"
+    },
+    "commentsDraftDisclaimer": {
+      "type": "text"
     }
   }
 }

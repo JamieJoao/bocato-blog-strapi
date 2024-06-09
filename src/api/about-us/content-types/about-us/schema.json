@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "data": {
-      "type": "json"
-    },
     "favoriteRecipes": {
       "type": "component",
       "repeatable": true,
@@ -24,14 +21,15 @@
       "type": "string"
     },
     "mainImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "title": {
       "type": "blocks"
@@ -43,14 +41,15 @@
       "type": "blocks"
     },
     "productsImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "ownComment": {
       "type": "richtext"
@@ -68,14 +67,15 @@
       "type": "string"
     },
     "metaThumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

@@ -805,7 +805,6 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    data: Attribute.JSON;
     favoriteRecipes: Attribute.Component<'about-us.favorite-recipe', true>;
     name: Attribute.String;
     mainImage: Attribute.Media;
@@ -952,7 +951,12 @@ export interface ApiGalleryGallery extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    data: Attribute.JSON;
+    title: Attribute.String;
+    description: Attribute.Text;
+    images: Attribute.Media;
+    metaTitle: Attribute.String;
+    metaDescription: Attribute.Text;
+    metaThumbnail: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -977,12 +981,27 @@ export interface ApiHomeHome extends Schema.SingleType {
     singularName: 'home';
     pluralName: 'homes';
     displayName: 'Home';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    data: Attribute.JSON;
+    lastPostsTitle: Attribute.String;
+    lastPostsButtonText: Attribute.String;
+    lastPostsButtonUrl: Attribute.String;
+    ticketsTitle: Attribute.String;
+    ticketsButtonText: Attribute.String;
+    ticketsButtonUrl: Attribute.String;
+    ticketsImage: Attribute.Media;
+    igTitle: Attribute.String;
+    igButtonText: Attribute.String;
+    igButtonUrl: Attribute.String;
+    igImages: Attribute.Media;
+    igMessage: Attribute.Text;
+    metaTitle: Attribute.String;
+    metaDescription: Attribute.Text;
+    metaThumbnail: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -999,12 +1018,16 @@ export interface ApiMarketplaceMarketplace extends Schema.SingleType {
     singularName: 'marketplace';
     pluralName: 'marketplaces';
     displayName: 'Marketplace';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    data: Attribute.JSON;
+    mainImage: Attribute.Media;
+    metaTitle: Attribute.String;
+    metaDescription: Attribute.Text;
+    metaThumbnail: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1160,12 +1183,21 @@ export interface ApiSlugSlug extends Schema.SingleType {
     singularName: 'slug';
     pluralName: 'slugs';
     displayName: 'Slug';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    data: Attribute.JSON;
+    actionButtonsShareButton: Attribute.String;
+    actionButtonsCommentsButton: Attribute.String;
+    alsoLikeText: Attribute.String;
+    createCommentTitle: Attribute.String;
+    createCommentDescription: Attribute.Text;
+    createCommentStarsSelectorText: Attribute.String;
+    createCommentSendButton: Attribute.String;
+    commentsTitle: Attribute.String;
+    commentsDraftDisclaimer: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
