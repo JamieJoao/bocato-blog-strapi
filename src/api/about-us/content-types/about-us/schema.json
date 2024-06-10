@@ -17,9 +17,6 @@
       "repeatable": true,
       "component": "about-us.favorite-recipe"
     },
-    "name": {
-      "type": "string"
-    },
     "mainImage": {
       "type": "media",
       "multiple": false,
@@ -76,6 +73,9 @@
         "videos",
         "audios"
       ]
+    },
+    "name": {
+      "type": "string"
     }
   }
 }

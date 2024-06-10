@@ -39,6 +39,9 @@
         "videos",
         "audios"
       ]
+    },
+    "name": {
+      "type": "string"
     }
   }
 }

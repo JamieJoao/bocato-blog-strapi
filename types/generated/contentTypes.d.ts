@@ -806,7 +806,6 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
   };
   attributes: {
     favoriteRecipes: Attribute.Component<'about-us.favorite-recipe', true>;
-    name: Attribute.String;
     mainImage: Attribute.Media;
     title: Attribute.Blocks;
     greeting: Attribute.String;
@@ -818,6 +817,7 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     metaTitle: Attribute.String;
     metaDescription: Attribute.String;
     metaThumbnail: Attribute.Media;
+    name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -957,6 +957,7 @@ export interface ApiGalleryGallery extends Schema.SingleType {
     metaTitle: Attribute.String;
     metaDescription: Attribute.Text;
     metaThumbnail: Attribute.Media;
+    name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1002,6 +1003,7 @@ export interface ApiHomeHome extends Schema.SingleType {
     metaTitle: Attribute.String;
     metaDescription: Attribute.Text;
     metaThumbnail: Attribute.Media;
+    name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1028,6 +1030,7 @@ export interface ApiMarketplaceMarketplace extends Schema.SingleType {
     metaTitle: Attribute.String;
     metaDescription: Attribute.Text;
     metaThumbnail: Attribute.Media;
+    name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1198,6 +1201,7 @@ export interface ApiSlugSlug extends Schema.SingleType {
     createCommentSendButton: Attribute.String;
     commentsTitle: Attribute.String;
     commentsDraftDisclaimer: Attribute.Text;
+    name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

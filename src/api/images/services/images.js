@@ -71,17 +71,22 @@ module.exports = () => ({
 
       const people = await strapi.entityService.findMany('api::person.person', { populate: ['photo'] })
       const posts = await strapi.entityService.findMany('api::post.post', { populate: ['image'] })
-      const { results: [aboutUs] } = await strapi.entityService.findPage('api::about-us.about-us')
-      const { results: [gallery] } = await strapi.entityService.findPage('api::gallery.gallery')
-      const { results: [home] } = await strapi.entityService.findPage('api::home.home')
-      const { results: [marketplace] } = await strapi.entityService.findPage('api::marketplace.marketplace')
+      const aboutUs = await strapi.entityService.findMany('api::about-us.about-us', { populate: ['mainImage', 'productsImage', 'metaThumbnail'] })
+      const gallery = await strapi.entityService.findMany('api::gallery.gallery', { populate: ['images', 'metaThumbnail'] })
+      const home = await strapi.entityService.findMany('api::home.home', { populate: ['ticketsImage', 'igImages', 'metaThumbnail'] })
+      const marketplace = await strapi.entityService.findMany('api::marketplace.marketplace', { populate: ['mainImage', 'metaThumbnail'] })
+
+      delete aboutUs.id
+      delete gallery.id
+      delete home.id
+      delete marketplace.id
 
       const peopleUsingImage = people.filter(person => person.photo && person.photo.id == id)
       const postsUsingImage = posts.filter(post => post.image && post.image.id == id)
-      const aboutUsUsingImage = findAllPaths(aboutUs?.data ?? {}, image.url)
-      const galleryUsingImage = findAllPaths(gallery?.data ?? {}, image.url)
-      const homeUsingImage = findAllPaths(home?.data ?? {}, image.url)
-      const marketplaceUsingImage = findAllPaths(marketplace?.data ?? {}, image.url)
+      const aboutUsUsingImage = aboutUs.mainImage == id || aboutUs.productsImage == id || aboutUs.metaThumbnail == id ? [aboutUs] : []
+      const galleryUsingImage = gallery.images.some(image => image.id == id) || gallery.metaThumbnail == id ? [gallery] : []
+      const homeUsingImage = home.ticketsImage == id || home.igImages.some(image => image.id == id) || home.metaThumbnail == id ? [home] : []
+      const marketplaceUsingImage = marketplace.mainImage == id || marketplace.metaThumbnail == id ? [marketplace] : []
 
       return {
         person: peopleUsingImage,

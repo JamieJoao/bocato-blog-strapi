@@ -38,6 +38,9 @@
     },
     "commentsDraftDisclaimer": {
       "type": "text"
+    },
+    "name": {
+      "type": "string"
     }
   }
 }
