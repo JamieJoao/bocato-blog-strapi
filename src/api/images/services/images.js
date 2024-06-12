@@ -81,12 +81,12 @@ module.exports = () => ({
       delete home.id
       delete marketplace.id
 
-      const peopleUsingImage = people.filter(person => person.photo && person.photo.id == id)
-      const postsUsingImage = posts.filter(post => post.image && post.image.id == id)
-      const aboutUsUsingImage = aboutUs.mainImage == id || aboutUs.productsImage == id || aboutUs.metaThumbnail == id ? [aboutUs] : []
-      const galleryUsingImage = gallery.images.some(image => image.id == id) || gallery.metaThumbnail == id ? [gallery] : []
-      const homeUsingImage = home.ticketsImage == id || home.igImages.some(image => image.id == id) || home.metaThumbnail == id ? [home] : []
-      const marketplaceUsingImage = marketplace.mainImage == id || marketplace.metaThumbnail == id ? [marketplace] : []
+      const peopleUsingImage = people.filter(person => person.photo?.id == id)
+      const postsUsingImage = posts.filter(post => post.image?.id == id)
+      const aboutUsUsingImage = aboutUs.mainImage?.id == id || aboutUs.productsImage?.id == id || aboutUs.metaThumbnail?.id == id ? [aboutUs] : []
+      const galleryUsingImage = gallery.images.some(image => image.id == id) || gallery.metaThumbnail?.id == id ? [gallery] : []
+      const homeUsingImage = home.ticketsImage?.id == id || home.igImages.some(image => image.id == id) || home.metaThumbnail?.id == id ? [home] : []
+      const marketplaceUsingImage = marketplace.mainImage?.id == id || marketplace.metaThumbnail?.id == id ? [marketplace] : []
 
       return {
         person: peopleUsingImage,
